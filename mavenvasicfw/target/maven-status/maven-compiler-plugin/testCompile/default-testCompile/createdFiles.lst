@@ -1,0 +1,8 @@
+com\k2js\mavenbasicfw\pageobjects\ConfirmationPage.class
+com\k2js\mavenbasicfw\pageobjects\ReservationPage.class
+com\k2js\mavenbasicfw\testscripts\TestRunner.class
+com\k2js\mavenbasicfw\pageobjects\HomePage.class
+com\k2js\mavenbasicfw\testscripts\TestRunner2.class
+com\k2js\mavenbasicfw\util\BrowserFactory.class
+com\k2js\mavenbasicfw\util\CommonUtil.class
+com\k2js\mavenbasicfw\pageobjects\RegisterPage.class

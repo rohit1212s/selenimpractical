@@ -1,0 +1,36 @@
+package com.k2js.seleniumbasics.topic17_readsdatafrompropertyfile;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+
+import org.openqa.selenium.WebDriver;
+
+
+public class PropertyFileReads {
+	public static void main(String[] args) {
+		FileInputStream fs;
+		try {
+			fs = new FileInputStream("config.properties");
+		 
+				Properties prop=new Properties();
+				prop.load(fs);
+				String bn=prop.getProperty("browsername");
+				String rm=prop.getProperty("runmode");
+				System.out.println(bn);
+				System.out.println(rm);
+		}
+		catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+}
+				WebDriver driver=BrowserFactory.getBrowser(bn, rm);
+				driver.get("http://newtours.demoaut.com/");
+				System.out.println(driver.getTitle());
+		
+		
+				
+	}
+
+}

@@ -1,0 +1,34 @@
+package com.k2js.seleniumbasics.topic11_implicitwait;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriver.Options;
+import org.openqa.selenium.WebDriver.Timeouts;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class ImplicitWait {
+
+	public static void main(String[] args) {
+		
+		System.setProperty("webdriver.chrome.driver", "F:\\SeleniumTrainingByJitendra\\Tools\\selenium softwares 3.14.9\\chromedriver_win32_79\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("http://yahoo.com");
+		
+		Options o = driver.manage();
+		Timeouts to = o.timeouts();
+		to.implicitlyWait(120, TimeUnit.SECONDS);
+		
+		//driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS); //descriptive
+		
+		driver.findElement(By.id("uh-search-box")).sendKeys("test");
+		
+		int ct = (int)(Math.random()*10)+1;
+		
+		driver.findElement(By.xpath("//li[@class='yui3-aclist-item']["+ct+"]")).click();
+		
+		
+	}
+
+}

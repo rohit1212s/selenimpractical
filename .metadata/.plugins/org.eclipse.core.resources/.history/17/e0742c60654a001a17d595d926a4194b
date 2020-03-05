@@ -1,0 +1,17 @@
+package com.k2js.excelbasics.practice;
+
+import java.util.Arrays;
+
+import org.testng.annotations.Test;
+
+public class TestRunner {
+	String bn,rm,url;
+	WebDriver driver;
+	HomePage hp;
+	
+	@Test(dataProvider = "abc", dataProviderClass = ExcellReader.class)
+	public void verifyConfirmationMessage(String...data) {
+		System.out.println(Arrays.deepToString(data));
+	}
+
+}

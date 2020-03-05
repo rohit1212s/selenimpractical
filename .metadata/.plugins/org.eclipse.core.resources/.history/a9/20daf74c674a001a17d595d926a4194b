@@ -1,0 +1,31 @@
+package com.k2js.mavenfinalframwork.testscript;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import com.k2js.mavenfinalframwork.pageobject.HomePage;
+import com.k2js.mavenfinalframwork.util.BrowserFactory;
+
+
+
+public class TestRunner {
+	String bn,rm,url;
+	WebDriver driver;
+	HomePage hp;
+	
+	@Parameters({"browser","runmode"})// parameter name should be same as TestNg.xml file
+	
+	@BeforeClass
+	public void init() {
+		this.driver=BrowserFactory.getBrowser(this.bn, this.rm);
+		this.hp=PageFactory.initElements(this.driver, HomePage.class);
+	}
+	@Test
+	public void verifyHomePageTitle() {
+		
+	}
+
+}

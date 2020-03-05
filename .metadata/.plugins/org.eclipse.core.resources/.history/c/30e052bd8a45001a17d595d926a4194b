@@ -1,0 +1,30 @@
+package com.k2js.mavenbasicfw.pageobjects;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class HomePage {
+	private WebDriver driver;
+
+	public HomePage(WebDriver driver) {
+		this.driver = driver;
+	}
+
+	@FindBy(linkText="REGISTER")
+	private WebElement reglink;
+	
+	
+	public RegisterPage clickRegisterLink() {
+		this.reglink.click();
+		return PageFactory.initElements(this.driver, RegisterPage.class);
+
+	}
+	
+	public String getHomePageTitle() {
+		return this.driver.getTitle();
+
+	}
+
+}

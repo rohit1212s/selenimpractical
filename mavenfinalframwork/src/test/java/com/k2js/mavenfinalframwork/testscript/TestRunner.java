@@ -1,0 +1,113 @@
+package com.k2js.mavenfinalframwork.testscript;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import com.k2js.mavenfinalframwork.pageobject.RegisterPage;
+import com.k2js.mavenfinalframwork.pageobject.HomePage;
+import com.k2js.mavenfinalframwork.util.BrowserFactory;
+import com.k2js.mavenfinalframwork.util.CommonUtil;
+import com.k2js.mavenfinalframwork.util.ExcellReader;
+import com.k2js.mavenfinalframwork.util.FailReRunTests;
+
+public class TestRunner {
+	String bn, rm, url;
+	WebDriver driver;
+	HomePage hp;
+
+	@Parameters({ "browser", "runmode" }) // parameter name should be same as TestNg.xml file
+
+	@BeforeClass
+	public void readTestData(@Optional("chrome") String b, @Optional("local") String r) {
+		this.bn = b;
+		this.rm = r;
+		try {
+			this.url = CommonUtil.getProperty("config", "url");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	@BeforeMethod
+	public void init() {
+		this.driver = BrowserFactory.getBrowser(this.bn, this.rm);
+		this.hp = PageFactory.initElements(this.driver, HomePage.class);
+		BrowserFactory.openUrl(this.url);
+	}
+
+	@AfterMethod
+	public void quit() {
+		BrowserFactory.close();
+	}
+
+	@Test(dataProvider = "abc",dataProviderClass =ExcellReader.class, retryAnalyzer=FailReRunTests.class)
+	public void verifyHomePageTitle(String...data)throws Throwable {
+		
+		String result="fail",errMsg="";
+		try {
+			String expTitle=data[0];
+			String actTitle=this.hp.getHomePageTitle();
+			Assert.assertEquals(expTitle, actTitle,"Both name are not same");
+			result="pass";
+		}catch(Throwable t) {
+			errMsg=t.getMessage();
+			CommonUtil.takeScreenShot(driver);
+			t.printStackTrace();
+			throw t;
+		}
+		finally {
+			System.out.println(result);
+			if(errMsg!=null)
+				System.out.println(errMsg);
+		}
+	}
+	
+	@Test(dataProvider = "abc",dataProviderClass =ExcellReader.class, retryAnalyzer=FailReRunTests.class)
+	public void verifyConfirmationMessage(String...data)throws Throwable {
+		
+		String result="fail",errMsg="";
+		try {
+			RegisterPage rp = hp.clickRegisterLink();
+			rp = hp.clickRegisterLink();
+			String fn = data[0];
+			rp.enterFirstName(fn);
+			String ln = data[1];
+			rp.enterLastFirstName(ln);
+			String pn = data[2];
+			rp.enterPhone(pn);
+			String em = data[3];
+			rp.enterEmail(em);
+			String adr = data[4];
+			rp.enterAdrress(adr);
+//			
+			rp.clickSubmit();
+//			String actualText = "Dear K2js Java,\nThank you for registering. You may now sign-in using the user name and password you've just entered.\r\n"
+//					+ "\nNote: Your user name is rohit1212p.";
+//			System.out.println(actualText);
+//			String expecText = CommonUtil.getProperty("confirmationpage", "registerpage.confmessage");
+//			System.out.println(expecText);
+//			//assert actualText.equalsIgnoreCase(expecText) : "Title is not same";
+			result = "Pass";
+
+		}catch(Throwable t) {
+			errMsg=t.getMessage();
+			CommonUtil.takeScreenShot(driver);
+			t.printStackTrace();
+			throw t;
+		}
+		finally {
+			System.out.println(result);
+			if(errMsg!=null)
+				System.out.println(errMsg);
+		}
+	}
+
+
+}

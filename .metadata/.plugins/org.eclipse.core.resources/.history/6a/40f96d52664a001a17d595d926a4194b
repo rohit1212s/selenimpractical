@@ -1,0 +1,11 @@
+package com.k2js.mavenfinalframwork.testscript;
+
+import org.testng.annotations.Test;
+
+public class TestRunner {
+	@Test
+	public void verifyHomePageTitle() {
+		
+	}
+
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test thread-count="5" name="Default test(failed)">
+    <classes>
+      <class name="com.k2js.testngbasics.testscripts.TestRunner">
+        <methods>
+          <include name="preConditions"/>
+          <include name="verifyHomePageTitle"/>
+          <include name="closure"/>
+          <include name="readData"/>
+          <include name="verifyConfirmationMessage"/>
+        </methods>
+      </class> <!-- com.k2js.testngbasics.testscripts.TestRunner -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

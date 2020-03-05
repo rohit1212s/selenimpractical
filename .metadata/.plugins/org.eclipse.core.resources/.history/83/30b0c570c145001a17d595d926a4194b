@@ -1,0 +1,45 @@
+package com.k2js.excelbasics.practice;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+
+public class DataReaderPractice {
+	private static Sheet sh;
+	static {
+		try (FileInputStream fis = new FileInputStream("testdata//NTData.xlsx");
+				Workbook wb = WorkbookFactory.create(fis)) {
+			sh = wb.getSheetAt(0);
+			// sh =wb.getSheet("sheet1");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+
+		}
+	}
+	
+	public static int getRowCount() {
+		int rc=sh.getPhysicalNumberOfRows();
+		return rc;	
+	}
+	public static int getRow0cellCount() {
+		Row r=sh.getRow(0);
+		int cellC=r.getPhysicalNumberOfCells();
+		return cellC;
+		
+	}
+	
+	public static void main(String[] args) {
+		int result=DataReaderPractice.getRowCount();
+		System.out.println(result);
+		
+		int result2= DataReaderPractice.getRow0cellCount();
+		System.out.println(result2);
+	}
+
+}

@@ -1,0 +1,63 @@
+package com.k2js.mavenbasicfw.testscripts;
+
+import static org.testng.Assert.assertEquals;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+
+import com.k2js.mavenbasicfw.pageobjects.HomePage;
+import com.k2js.mavenbasicfw.util.BrowserFactory;
+import com.k2js.mavenbasicfw.util.CommonUtil;
+
+public class TestRunner {
+	WebDriver driver;
+	String bn, rm, url;
+	public void verifyHomePageTitle() throws Throwable {
+		String testResult="fail", errorMsg="";
+		try {
+			this.bn=CommonUtil.getProperty("config", "browsername");
+			System.out.println(bn);
+			this.rm=CommonUtil.getProperty("config", "runmode");
+			System.out.println(rm);
+			this.url=CommonUtil.getProperty("config", "url");
+			System.out.println(url);
+			
+			this.driver=BrowserFactory.getBrowser(bn, rm);
+			BrowserFactory.openUrl(url);
+			System.out.println(this.driver);
+			HomePage hp=PageFactory.initElements(this.driver, HomePage.class);
+			String actualText=hp.getHomePageTitle();
+			
+			System.out.println(actualText);
+			String expecText=CommonUtil.getProperty("homepage", "homepage.title");
+			System.out.println(expecText);
+			assert actualText.equalsIgnoreCase(expecText):"Title is not same";
+			testResult="Pass";
+		}catch(Throwable t) {
+			errorMsg=t.getMessage();
+			CommonUtil.takeScreenShot(this.driver);
+			t.printStackTrace();
+			throw t;
+		}
+		
+		finally {
+			System.out.println(testResult);
+			if(errorMsg.isEmpty()) {
+				System.out.println(errorMsg);
+			} 
+			BrowserFactory.close();
+		}
+	}
+	
+	
+	public static void main(String[] args) {
+		TestRunner tr= new TestRunner();
+		try {
+			tr.verifyHomePageTitle();
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+}

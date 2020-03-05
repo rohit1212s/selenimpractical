@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="3" total="5" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="234" started-at="2020-02-02T17:34:10 IST" finished-at="2020-02-02T17:34:11 IST">
+    <groups>
+      <group name="High">
+        <method signature="TestRunner.verifyConfirmationMessage()[pri:0, instance:com.k2js.testngbasics.testscripts.TestRunner@5c5a1b69]" name="verifyConfirmationMessage" class="com.k2js.testngbasics.testscripts.TestRunner"/>
+        <method signature="TestRunner.verifyConfirmationMessage()[pri:0, instance:com.k2js.testngbasics.testscripts.TestRunner@5d76b067]" name="verifyConfirmationMessage" class="com.k2js.testngbasics.testscripts.TestRunner"/>
+      </group> <!-- High -->
+    </groups>
+    <test name="chrome" duration-ms="100" started-at="2020-02-02T17:34:10 IST" finished-at="2020-02-02T17:34:11 IST">
+      <class name="com.k2js.testngbasics.testscripts.TestRunner">
+        <test-method status="PASS" signature="printBrowserDetails(java.lang.String)[pri:0, instance:com.k2js.testngbasics.testscripts.TestRunner@5c5a1b69]" name="printBrowserDetails" is-config="true" duration-ms="27" started-at="2020-02-02T17:34:10 IST" finished-at="2020-02-02T17:34:11 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- printBrowserDetails -->
+        <test-method status="PASS" signature="readData(java.lang.String, java.lang.String)[pri:0, instance:com.k2js.testngbasics.testscripts.TestRunner@5c5a1b69]" name="readData" is-config="true" duration-ms="1" started-at="2020-02-02T17:34:11 IST" finished-at="2020-02-02T17:34:11 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[local]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- readData -->
+        <test-method status="PASS" signature="preConditions()[pri:0, instance:com.k2js.testngbasics.testscripts.TestRunner@5c5a1b69]" name="preConditions" is-config="true" duration-ms="0" started-at="2020-02-02T17:34:11 IST" finished-at="2020-02-02T17:34:11 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- preConditions -->
+        <test-method status="PASS" signature="verifyConfirmationMessage()[pri:0, instance:com.k2js.testngbasics.testscripts.TestRunner@5c5a1b69]" name="verifyConfirmationMessage" duration-ms="13" started-at="2020-02-02T17:34:11 IST" finished-at="2020-02-02T17:34:11 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyConfirmationMessage -->
+        <test-method status="PASS" signature="closure()[pri:0, instance:com.k2js.testngbasics.testscripts.TestRunner@5c5a1b69]" name="closure" is-config="true" duration-ms="1" started-at="2020-02-02T17:34:11 IST" finished-at="2020-02-02T17:34:11 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closure -->
+        <test-method status="PASS" signature="classCompleted()[pri:0, instance:com.k2js.testngbasics.testscripts.TestRunner@5c5a1b69]" name="classCompleted" is-config="true" duration-ms="1" started-at="2020-02-02T17:34:11 IST" finished-at="2020-02-02T17:34:11 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- classCompleted -->
+        <test-method status="PASS" signature="completedBrowsers()[pri:0, instance:com.k2js.testngbasics.testscripts.TestRunner@5c5a1b69]" name="completedBrowsers" is-config="true" duration-ms="1" started-at="2020-02-02T17:34:11 IST" finished-at="2020-02-02T17:34:11 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- completedBrowsers -->
+      </class> <!-- com.k2js.testngbasics.testscripts.TestRunner -->
+    </test> <!-- chrome -->
+    <test name="firefox" duration-ms="20" started-at="2020-02-02T17:34:11 IST" finished-at="2020-02-02T17:34:11 IST">
+      <class name="com.k2js.testngbasics.testscripts.TestRunner">
+        <test-method status="PASS" signature="printBrowserDetails(java.lang.String)[pri:0, instance:com.k2js.testngbasics.testscripts.TestRunner@5d76b067]" name="printBrowserDetails" is-config="true" duration-ms="1" started-at="2020-02-02T17:34:11 IST" finished-at="2020-02-02T17:34:11 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- printBrowserDetails -->
+        <test-method status="PASS" signature="readData(java.lang.String, java.lang.String)[pri:0, instance:com.k2js.testngbasics.testscripts.TestRunner@5d76b067]" name="readData" is-config="true" duration-ms="1" started-at="2020-02-02T17:34:11 IST" finished-at="2020-02-02T17:34:11 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[local]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- readData -->
+        <test-method status="PASS" signature="preConditions()[pri:0, instance:com.k2js.testngbasics.testscripts.TestRunner@5d76b067]" name="preConditions" is-config="true" duration-ms="1" started-at="2020-02-02T17:34:11 IST" finished-at="2020-02-02T17:34:11 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- preConditions -->
+        <test-method status="PASS" signature="verifyConfirmationMessage()[pri:0, instance:com.k2js.testngbasics.testscripts.TestRunner@5d76b067]" name="verifyConfirmationMessage" duration-ms="5" started-at="2020-02-02T17:34:11 IST" finished-at="2020-02-02T17:34:11 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyConfirmationMessage -->
+        <test-method status="PASS" signature="closure()[pri:0, instance:com.k2js.testngbasics.testscripts.TestRunner@5d76b067]" name="closure" is-config="true" duration-ms="3" started-at="2020-02-02T17:34:11 IST" finished-at="2020-02-02T17:34:11 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closure -->
+        <test-method status="PASS" signature="classCompleted()[pri:0, instance:com.k2js.testngbasics.testscripts.TestRunner@5d76b067]" name="classCompleted" is-config="true" duration-ms="0" started-at="2020-02-02T17:34:11 IST" finished-at="2020-02-02T17:34:11 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- classCompleted -->
+        <test-method status="PASS" signature="completedBrowsers()[pri:0, instance:com.k2js.testngbasics.testscripts.TestRunner@5d76b067]" name="completedBrowsers" is-config="true" duration-ms="0" started-at="2020-02-02T17:34:11 IST" finished-at="2020-02-02T17:34:11 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- completedBrowsers -->
+      </class> <!-- com.k2js.testngbasics.testscripts.TestRunner -->
+    </test> <!-- firefox -->
+  </suite> <!-- Default suite -->
+</testng-results>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="32888" started-at="2020-02-02T14:47:08 IST" finished-at="2020-02-02T14:47:41 IST">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="32888" started-at="2020-02-02T14:47:08 IST" finished-at="2020-02-02T14:47:41 IST">
+      <class name="com.k2js.mavenbasicfw.testscripts.TestRunner">
+        <test-method status="PASS" signature="verifyHomePageTitle()[pri:0, instance:com.k2js.mavenbasicfw.testscripts.TestRunner@4e7dc304]" name="verifyHomePageTitle" duration-ms="7357" started-at="2020-02-02T14:47:08 IST" finished-at="2020-02-02T14:47:16 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyHomePageTitle -->
+        <test-method status="PASS" signature="verifyConfirmationMessage()[pri:0, instance:com.k2js.mavenbasicfw.testscripts.TestRunner@4e7dc304]" name="verifyConfirmationMessage" duration-ms="12080" started-at="2020-02-02T14:47:16 IST" finished-at="2020-02-02T14:47:28 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyConfirmationMessage -->
+      </class> <!-- com.k2js.mavenbasicfw.testscripts.TestRunner -->
+      <class name="com.k2js.mavenbasicfw.testscripts.TestRunner2">
+        <test-method status="PASS" signature="verifyHeadings()[pri:0, instance:com.k2js.mavenbasicfw.testscripts.TestRunner2@64729b1e]" name="verifyHeadings" duration-ms="13378" started-at="2020-02-02T14:47:28 IST" finished-at="2020-02-02T14:47:41 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyHeadings -->
+      </class> <!-- com.k2js.mavenbasicfw.testscripts.TestRunner2 -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

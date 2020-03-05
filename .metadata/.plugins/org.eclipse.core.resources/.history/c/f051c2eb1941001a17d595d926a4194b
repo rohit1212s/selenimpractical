@@ -1,0 +1,17 @@
+package com.k2js.mavenseleniumbasics.autoitscript;
+
+class Pro3 {
+	public static void mlen(String name) {
+
+		System.out.println(name.length());
+
+	}
+}
+
+class Pro3Test {
+	public static void main(String... abc) {
+		Pro3.mlen("Hello");
+		Pro3.mlen(null);
+		Pro3.mlen("world");
+	}
+}

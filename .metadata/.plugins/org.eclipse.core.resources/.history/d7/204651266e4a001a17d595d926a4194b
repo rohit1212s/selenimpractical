@@ -1,0 +1,5 @@
+browsername:chrome
+runmode:local
+url:http://newtours.demoaut.com/
+RemoteModule1:http:\\192.168.0.141:4444\wd\hub
+RemoteModule2:http:\\192.168.0.141:4444\wd\hub

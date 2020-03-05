@@ -1,0 +1,89 @@
+package com.k2js.seleniumbasics.assignment06;
+
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class Snapdealfindelements {
+
+	public static void main(String[] args) {
+		
+		System.setProperty("webdriver.chrome.driver", "F:\\SeleniumTrainingByJitendra\\Tools\\selenium softwares 3.14.9\\chromedriver_win32_79\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.snapdeal.com/");
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
+		
+		WebElement comp = driver.findElement(By.xpath("//span[@class='catText'][contains(text(), 'Computers & Gaming')]"));
+		comp.click();
+		
+		WebElement storage = driver.findElement(By.xpath("//span[contains(text(),'Storage')]"));
+		storage.click();
+		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0, document.body.scrollHeight)"); //to get to bottom of web-page
+		
+		try {
+		Thread.sleep(5000);
+	} catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+		
+		WebElement we = driver.findElement(By.cssSelector("div[data-name ='Capacity_s']+button"));
+		js.executeScript("arguments[0].scrollIntoView();", we);
+		
+		/*try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/
+		WebDriverWait wait2 = new WebDriverWait(driver, 10);
+		wait2.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("div[data-name ='Capacity_s']+button")));
+		we.click();
+		
+		List<WebElement> capacity = driver.findElements(By.cssSelector("div[data-name='Capacity_s']>div[class='filters-list sdCheckbox  ']"));
+		int size = capacity.size();
+		int count = 5;
+		for(int i=0; i<=size ;i++) {
+			if(i==count) {
+				capacity.get(i).click();
+			}
+		}
+			
+		//}
+		
+		//Actions actions = new Actions(driver);
+		//actions.keyDown(Keys.CONTROL).sendKeys(Keys.END).perform();
+	
+		/*try {
+	        Object lastHeight = ((JavascriptExecutor) driver).executeScript("return document.body.scrollHeight");
+
+	        while (true) {
+	            ((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight);");
+	            Thread.sleep(2000);
+
+	            Object newHeight = ((JavascriptExecutor) driver).executeScript("return document.body.scrollHeight");
+	            if (newHeight.equals(lastHeight)) {
+	                break;
+	            }
+	            lastHeight = newHeight;
+	        }
+	    } catch (InterruptedException e) {
+	        e.printStackTrace();
+	    }*/
+	}
+	
+	}
+
+

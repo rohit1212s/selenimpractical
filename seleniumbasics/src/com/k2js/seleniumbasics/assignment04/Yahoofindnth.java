@@ -1,0 +1,52 @@
+package com.k2js.seleniumbasics.assignment04;
+
+import java.time.Duration;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.WebDriver.Options;
+import org.openqa.selenium.WebDriver.Timeouts;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class Yahoofindnth {
+	
+public static void main(String[] args) {
+		
+	System.setProperty("webdriver.chrome.driver", "F:\\SeleniumTrainingByJitendra\\Tools\\selenium softwares 3.14.9\\chromedriver_win32_79\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("http://yahoo.com");
+		
+		Options o = driver.manage();
+		Timeouts to = o.timeouts();
+		to.pageLoadTimeout(60, TimeUnit.SECONDS);
+		
+		//driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS); //descriptive
+		WebDriverWait wd = new WebDriverWait(driver, 150);
+		wd.pollingEvery(Duration.ofSeconds(5));
+		wd.ignoring(StaleElementReferenceException.class);
+		WebElement el = wd.until(ExpectedConditions.elementToBeClickable(By.id("uh-search-box")));
+		el.sendKeys("test");
+		//driver.findElement(By.id("uh-search-box")).sendKeys("test");
+		
+		int ct = (int)(Math.random()*10)+1;
+		
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		//WebElement ele = wd.until(ExpectedConditions.elementToBeClickable(By.xpath("//li[@class='yui3-aclist-item']["+ct+"]/span/span")));
+		//ele.click();
+		driver.findElement(By.xpath("//li[@class='yui3-aclist-item']["+ct+"]/span/span")).click();
+		System.out.println("//li[@class='yui3-aclist-item']["+ct+"]");
+		
+	}
+
+}

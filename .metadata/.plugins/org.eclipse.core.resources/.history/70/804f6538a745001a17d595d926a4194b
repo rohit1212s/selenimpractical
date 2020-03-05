@@ -1,0 +1,72 @@
+package com.k2js.testngbasics.testscripts;
+
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+public class TestRunner {
+	String bn, rm, url;
+
+	@BeforeMethod
+	public void preConditions() {
+		System.out.println("Step 1-Read browser name from property file" + bn);
+		System.out.println("Step 2-Read runnmode from property file" + rm);
+		System.out.println("Step 3-Read Url from property file" + url);
+		System.out.println("Step 4-Open Browser");
+		System.out.println("Step 5-Open URl");
+		System.out.println("Step 6-Create Homepage object");
+	}
+
+	@Test
+	public void verifyHomePageTitle() {
+
+		System.out.println("Step 7-Get actual title from Home page");
+		System.out.println("Step 8-Get expected title from Home page property file");
+		System.out.println("Step 9-Validate actual and expected title");
+
+	}
+
+	@Test
+	public void verifyConfirmationMessage() {
+
+		System.out.println("Step 7-Click on register link");
+		System.out.println("Step 8-Create Registerpage object");
+		System.out.println("Step 9-Read first name from property file");
+		System.out.println("Step 10-Enter firstname");
+		System.out.println("Step 11-Read last name from property file");
+		System.out.println("Step 12-Enter last name");
+		System.out.println("Step 13-Read phone number from property file");
+		System.out.println("Step 14-Enter phone number");
+		System.out.println("Step 15-Read email from property file");
+		System.out.println("Step 16-Enter email");
+		System.out.println("Step 17-Read address from property file");
+		System.out.println("Step 18-Enter address");
+		System.out.println("Step 19-Read city from property file");
+		System.out.println("Step 20-Enter city");
+		System.out.println("Step 21-Read state from property file");
+		System.out.println("Step 22-Enter state");
+		System.out.println("Step 23-Read pin code from property file");
+		System.out.println("Step 24-Enter pin code");
+		System.out.println("Step 25-Read country from property file");
+		System.out.println("Step 26-Enter country");
+		System.out.println("Step 27-Read username from property file");
+		System.out.println("Step 28-Enter username");
+		System.out.println("Step 29-Read password from property file");
+		System.out.println("Step 30-Enter password");
+		System.out.println("Step 31-Read confirm password from property file");
+		System.out.println("Step 32-Enter password again");
+		System.out.println("Step 33-click on submit button");
+		System.out.println("Step 34-Get actual confirm message from confirmation page");
+		System.out.println("Step 35-Get expected title from confirmation page property file");
+		System.out.println("Step 36-Validate actual and expected title");
+
+	}
+
+	@AfterMethod
+	public void closure() {
+		System.out.println("Test case completed");
+		System.out.println("--------------------------------------------");
+		System.out.println("Browser is closed");
+	}
+
+}

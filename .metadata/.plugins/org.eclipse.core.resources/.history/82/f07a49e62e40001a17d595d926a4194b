@@ -1,0 +1,29 @@
+package com.k2js.mavenbasicfw.util;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+
+public class CommonUtil {
+	public static String getProperty(String filename, String key)throws FileNotFoundException{
+		try(FileInputStream fis=new FileInputStream("//testdata//"+filename+ ".properties")) {
+			Properties p=new Properties();
+			p.load(fis);
+			return p.getProperty(key);
+		}catch(IOException ioe) {
+			ioe.printStackTrace();
+		}		
+		return null;
+		
+	}
+
+
+
+public static void main(String[] args) {
+	String bn=CommonUtil.getProperty("config", "browsername");
+	System.out.println(bn);
+}
+
+
+}

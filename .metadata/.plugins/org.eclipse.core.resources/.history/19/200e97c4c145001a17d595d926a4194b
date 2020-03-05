@@ -1,0 +1,81 @@
+package com.k2js.excelbasics.practice;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+
+public class DataReaderPractice {
+	private static Sheet sh;
+	static {
+		try (FileInputStream fis = new FileInputStream("testdata//NTData.xlsx");
+				Workbook wb = WorkbookFactory.create(fis)) {
+			sh = wb.getSheetAt(0);
+			// sh =wb.getSheet("sheet1");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+
+		}
+	}
+	
+	public static int getRowCount() {
+		int rc=sh.getPhysicalNumberOfRows();
+		return rc;	
+	}
+	public static int getRow0cellCount() {
+		Row r=sh.getRow(0);
+		int cellC=r.getPhysicalNumberOfCells();
+		return cellC;
+		
+	}
+	
+	/*
+	 * public static void getAllRowCellCount() { int rc=
+	 * sh.getPhysicalNumberOfRows(); for() {
+	 * 
+	 * } }
+	 */
+	
+	public static String getRow0Cell0Data() {
+		Row r=sh.getRow(0);
+		Cell c=r.getCell(0);
+		String data=c.getStringCellValue();
+		return data;
+		
+		//String data=r.getCell(0).getStringCellValue();
+	}
+	
+	public static void allRowAllcellData() {
+		int rc=sh.getPhysicalNumberOfRows();
+		for(int i=0;i<rc;i++) {
+			Row row=sh.getRow(i);
+			int cc=row.getPhysicalNumberOfCells();
+			for(int c=0;cc<c;c++) {
+				String data=row.getCell(cc).getStringCellValue();
+				System.out.print(data+"\t");
+			}
+			System.out.println();
+		}
+	}
+	
+	
+	
+	
+	
+	public static void main(String[] args) {
+		int result=DataReaderPractice.getRowCount();
+		System.out.println(result);
+		
+		int result2= DataReaderPractice.getRow0cellCount();
+		System.out.println(result2);
+	}
+	
+
+
+}
